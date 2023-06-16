@@ -10,25 +10,24 @@ function App() {
 }
 
 function ListDemo() {
-  //let list=["delhi"];
-  //c1:stateful variable
   let [list, setList] = useState(["Delhi"]);
 
-  //c2:Action Member Function
   let addItemAction = () => {
-    //creating the clone of list and adding the mumbai in it
-    let newlist = [...list, "Mumbai"];
+    let inputRef = document.querySelector("#id1");
+    let inputValue = inputRef.value;
 
-    console.log(newlist);
+    let newlist = [...list, inputValue];
 
-    //DOM :: TRIGGER DOM
     setList(newlist);
+
+    inputRef.value = "";
   };
 
   return (
     <>
-      {/**C3 : Event Binding */}
+      <input type="text" placeholder="Enter user input" id="id1" />
       <input type="button" value="Add New Item" onClick={addItemAction} />
+
       {list.map((item) => (
         <h1>Hello {item}</h1>
       ))}
