@@ -3,17 +3,20 @@ function App() {
     <>
       <h1>Props Demo</h1>
 
-      <MessageDemo />
-      <MessageDemo />
-      <MessageDemo />
+      {/**Calling the MessageDemo{1,'abcd'} */}
+
+      <MessageDemo name="Vitthal" />
+      <MessageDemo name="Ashitosh" />
+      <MessageDemo name="CDAC" />
     </>
   );
 }
 
-function MessageDemo() {
+function MessageDemo(props) {
+  //console.log("I am inside messagedemo", props);
   return (
     <>
-      <h1>Hello message!!</h1>
+      <h1>Hello {props.name}</h1>
     </>
   );
 }
