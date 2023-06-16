@@ -10,16 +10,13 @@ function App() {
 }
 
 function ListDemo() {
-  //adding data using useref
   let inputRef = useRef();
-  let [list, setList] = useState(["Delhi"]);
+  let [list, setList] = useState(["delhi"]);
 
   let addItemAction = () => {
     let inputValue = inputRef.current.value;
-
-    let newlist = [inputValue, ...list];
-
-    setList(newlist);
+    let newList = [inputValue, ...list];
+    setList(newList);
 
     inputRef.current.value = "";
   };
@@ -28,23 +25,29 @@ function ListDemo() {
     <>
       <input
         type="text"
-        ref={inputRef}
-        placeholder="Enter user input"
         id="id1"
+        ref={inputRef}
+        placeholder="Enter user input..."
       />
       <input type="button" value="Add New Item" onClick={addItemAction} />
 
       {list.map((item) => (
-        <MessageDemo />
+        <MessageDemo message={item} />
       ))}
     </>
   );
 }
 
-function MessageDemo() {
+function MessageDemo({ message }) {
   return (
     <>
-      <h1>Hello from WPT</h1>
+      <h1>Hello {message}</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
+        dolorem quas sequi tenetur quo odit cupiditate assumenda voluptas
+        quibusdam blanditiis voluptatem quis mollitia eaque molestiae animi,
+        provident eligendi facilis incidunt.
+      </p>
       <div>
         <input type="button" value="&#128077;" />
         <input type="button" value="&#128078;" />
@@ -52,4 +55,5 @@ function MessageDemo() {
     </>
   );
 }
+
 export default App;
